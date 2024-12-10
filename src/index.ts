@@ -7,6 +7,7 @@ export default (app: Probot) => {
     });
     await context.octokit.issues.createComment(issueComment);
   });
+
   // For more information on building apps:
   // https://probot.github.io/docs/
 
