@@ -1,34 +1,42 @@
 {
-  "name": "refactor-ranger",
-  "version": "1.0.0",
-  "private": true,
-  "description": "An AI code Review App",
-  "author": "Ve Varun Sharma",
-  "license": "ISC",
-  "homepage": "https://github.com//",
-  "keywords": [
-    "probot",
-    "github",
-    "probot-app"
-  ],
-  "scripts": {
-    "build": "tsc --build",
-    "start": "probot run ./dist/index.js",
-    "dev": "npm run build && npm run start",
-    "test": "vitest"
-  },
-  "dependencies": {
-    "probot": "^13.0.1"
-  },
-  "devDependencies": {
-    "@types/node": "^20.0.0",
-    "nock": "^14.0.0-beta.5",
-    "smee-client": "^2.0.0",
-    "typescript": "^5.3.3",
-    "vitest": "^1.3.1"
-  },
-  "engines": {
-    "node": ">= 18"
-  },
-  "type": "module"
+    "name": "refactor-ranger",
+    "version": "1.0.0",
+    "private": true,
+    "description": "An AI code Review App",
+    "author": "Ve Varun Sharma",
+    "license": "ISC",
+    "homepage": "https://github.com//",
+    "keywords": [
+        "probot",
+        "github",
+        "probot-app"
+    ],
+    "scripts": {
+        "build": "tsc --build",
+        "start": "probot run ./dist/index.js",
+        "dev": "npm run build && npm run start",
+        "test": "vitest",
+        "lint": "eslint",
+        "prettier-format": "prettier --write \"src/**/*.ts\"",
+        "prettier-check": "prettier --check \"src/**/*.ts\""
+    },
+    "dependencies": {
+        "probot": "^13.0.1"
+    },
+    "devDependencies": {
+        "@eslint/js": "^8.57.1",
+        "@types/node": "^20.0.0",
+        "eslint": "^8.57.1",
+        "globals": "^15.13.0",
+        "nock": "^14.0.0-beta.5",
+        "prettier": "^3.4.2",
+        "smee-client": "^2.0.0",
+        "typescript": "^5.3.3",
+        "typescript-eslint": "^7.2.0",
+        "vitest": "^1.3.1"
+    },
+    "engines": {
+        "node": ">= 18"
+    },
+    "type": "commonjs"
 }
