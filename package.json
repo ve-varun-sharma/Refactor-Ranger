@@ -15,7 +15,7 @@
         "build": "tsc --build",
         "start": "probot run ./dist/index.js",
         "dev": "npm run build && npm run start",
-        "test": "vitest",
+        "test": "jest --config ./src/config/jest/jest.config.js --setupFiles dotenv/config --coverage --verbose --testTimeout=10000",
         "lint": "eslint",
         "prettier-format": "prettier --write \"src/**/*.ts\"",
         "prettier-check": "prettier --check \"src/**/*.ts\""
