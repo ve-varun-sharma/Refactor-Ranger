@@ -1,15 +1,19 @@
-import { Probot } from "probot";
+import { Probot } from 'probot';
+import { generateAiResponse } from './helpers/gemini.helpers';
 
 export default (app: Probot) => {
-  app.on("issues.opened", async (context) => {
-    const issueComment = context.issue({
-      body: "Thanks for opening this issue!",
-    });
-    await context.octokit.issues.createComment(issueComment);
-  });
-  // For more information on building apps:
-  // https://probot.github.io/docs/
+    app.log.info('Refactor Ranger at your service!');
 
-  // To get your app running against GitHub, see:
-  // https://probot.github.io/docs/development/
+    app.on(['issues.opened', 'pull_request.opened'], async (context) => {
+        if (context.name === 'issues') {
+            const contextBody = context.payload.issue.body;
+
+            const aiResponse = await generateAiResponse(contextBody as string);
+
+            const issueComment = context.issue({
+                body: aiResponse
+            });
+            await context.octokit.issues.createComment(issueComment);
+        }
+    });
 };
